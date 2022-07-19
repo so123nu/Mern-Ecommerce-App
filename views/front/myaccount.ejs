@@ -1,0 +1,88 @@
+
+  <%- include('./partials/header')  %> 
+  
+ 
+  <!-- catg header banner section -->
+  <section id="aa-catg-head-banner">
+    <img src="<%= BASEURL %>/img/fashion/fashion-header-bg-8.jpg" alt="fashion img">
+    <div class="aa-catg-head-banner-area">
+     <div class="container">
+      <div class="aa-catg-head-banner-content">
+        <h2>Account Page</h2>
+        <ol class="breadcrumb">
+          <li><a href="index.html">Home</a></li>                   
+          <li class="active">Account</li>
+        </ol>
+      </div>
+     </div>
+   </div>
+  </section>
+  <!-- / catg header banner section -->
+
+ <!-- Cart view section -->
+ <section id="aa-myaccount">
+   <div class="container">
+     <div class="row">
+       <div class="col-md-12">
+        <div class="aa-myaccount-area"> 
+         
+              
+            <% if(typeof message !== 'undefined' && message.length > 0){ %>  
+                <div class="alert alert-success"><%= message %></div>  
+            <% } %>  
+
+            <% if(Object.keys(errors).length !== 0 ){ %>  
+               <% errors[0].errors.forEach(function(err) { %> 
+                  <div class="alert alert-danger mb-2">  <%= JSON.stringify(err.msg) %> </div>
+                <% }) %> 
+            <% } %>    
+
+        
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="aa-myaccount-login">
+                <h4>Login</h4>
+                 <form action="<%=BASEURL%>/users/login" class="aa-login-form" method="POST" class="aa-login-form">
+                 
+                  <label for="">Email address<span>*</span></label>
+                   <input type="text" required placeholder="Email" name="email">
+                   <label for="">Password<span>*</span></label>
+                    <input type="password" required placeholder="Password" name="password">
+                    <button type="submit" class="aa-browse-btn">Login</button>
+                    <label class="rememberme" for="rememberme"><input type="checkbox" id="rememberme"> Remember me </label>
+                    <p class="aa-lost-password"><a href="#">Lost your password?</a></p>
+                  </form>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="aa-myaccount-register">                 
+                 <h4>Register</h4>
+                 <form action="<%=BASEURL%>/users/register" class="aa-login-form" method="POST">
+                    <label for="">Name<span>*</span></label>
+                    <input type="text" required placeholder="Name" name="name">
+                    <label for="">Email address<span>*</span></label>
+                    <input type="text" required placeholder="Username or email" name="email">
+                    <label for="">Password<span>*</span></label>
+                    <input type="password" required placeholder="Password" name="password">
+                    <label for="">Confirm Password<span>*</span></label>
+                    <input type="password" required placeholder="Confirm Password" name="confirmPassword">
+                    <label for="">Mobile<span>*</span></label>
+                    <input type="text" required placeholder="Mobile" name="mobile">
+                    <button type="submit" class="aa-browse-btn">Register</button>                    
+                  </form>
+                </div>
+              </div>
+            </div>          
+         </div>
+       </div>
+     </div>
+   </div>
+ </section>
+ <!-- / Cart view section -->
+
+ <%- include('./partials/footer') %>
+
+ 
+
+  
